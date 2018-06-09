@@ -345,6 +345,16 @@ public class SMBC extends javax.swing.JFrame {
                         if (index1 >= 0) { //this code will run if it is found
 
                             composerCatalogue.remove(input); //removes title from composer list
+                            
+                            for (int i = 0; i < composerCatalogue.size(); i++) //cycle through other catalogue
+                            {
+                                String entry = composerCatalogue.get(i);
+                                System.out.println(entry); //for troubleshooting******************************************************************************
+                                if (entry.contains(fragment1) && entry.contains(fragment2)) //if entry matches both fragments, 
+                                {                                                           //it's probably the one we're looking for
+                                    composerCatalogue.remove(entry); //delete it
+                                }
+                            }
 
                             outputArea.setText("The following title was removed from your catalogue: " + input); //communicate with user
                             searchInput.setText(""); //wipes input
